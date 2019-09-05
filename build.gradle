@@ -15,6 +15,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+compileJava {
+    targetCompatibility '1.8'
+}
+
 def mainClassName = "com.netspi.awssigner.Main"
 
 jar {

@@ -1,0 +1,11 @@
+<p>Burp Extension for AWS Sigv4 Signing</p>
+
+<p>Add your Access Key, Secret Key, Region, and Service to the properties in the extension tab.</p>
+
+<p>The extension will look for the "X-AMZ-Date" header in all requests being sent by Burp. If it finds a request, it will update the signature in the request. Your request must also have an Authorization header, which should be on all AWS signed requests.</p>
+
+<p>More information about Sigv4 can be found here:</p>
+<ul>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html</a></li>
+  <li><a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html</a></li>
+</ul>
