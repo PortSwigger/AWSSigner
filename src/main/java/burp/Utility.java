@@ -113,7 +113,6 @@ public class Utility {
         }
 
         String canonicalUri = requestInfo.getUrl().getPath();
-        //pw.println(canonicalUri);
         URI uri = new URI(canonicalUri);
         uri = uri.normalize();
         String path = uri.getPath();
@@ -129,7 +128,6 @@ public class Utility {
         }
 
         String encodedCanonicalUri = String.join("/", encodedSegments);
-        //pw.println(encodedCanonicalUri);
 
         // Replace characters we might have lost in the split
         if (path.charAt(path.length()-1) == '/') {
@@ -174,16 +172,12 @@ public class Utility {
         }
         canonicalQueryString = String.join("", cleanup);
 
-        //canonicalQueryString = canonicalQueryString.replace(":","%3A").replace("/","%2F").replace(" ", "%20");
-
         String canonicalRequest  = requestInfo.getMethod() + '\n' + encodedCanonicalUri + '\n' + canonicalQueryString + '\n' +
                 canonicalHeaders +'\n' + signedHeaders + '\n' + payloadHash;
         String credScope = dateStampString + '/' + region + '/' + service + '/' + "aws4_request";
         String algorithm = "AWS4-HMAC-SHA256";
 
         String stringToSign = algorithm + '\n' + amzdate + '\n' + credScope + '\n' + Hashing.sha256().hashString(canonicalRequest, StandardCharsets.UTF_8).toString().toLowerCase();
-        //pw.println(canonicalRequest);
-        //pw.println(stringToSign);
         byte[] signingKey = getSignatureKey(secretKey, dateStampString, region, service);
 
         String signature = DatatypeConverter.printHexBinary(HmacSHA256(stringToSign, signingKey));
