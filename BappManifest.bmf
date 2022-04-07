@@ -2,11 +2,12 @@ Uuid: d484744e0c3148f78da8808256e7f471
 ExtensionType: 1
 Name: AWS Signer
 RepoName: aws-signer
-ScreenVersion: 1.6
-SerialVersion: 1
+ScreenVersion: 2.0.1
+SerialVersion: 4
 MinPlatformVersion: 0
 ProOnly: False
 Author: Eric Gruber, Will Strei and Andrey Rainchik
 ShortDescription: Signs requests with AWS Signature Version 4
-EntryPoint: build/libs/awssigner-1.0-SNAPSHOT.jar
-BuildCommand: gradle jar
+EntryPoint: build/libs/awssigner-2.0.1.jar
+BuildCommand: ./gradlew jar
+SupportedProducts: Pro, Community
